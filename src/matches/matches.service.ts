@@ -1,19 +1,28 @@
 import { Injectable } from '@nestjs/common';
+import { PlayersService } from 'src/players/players.service';
+import { Player } from 'src/players/schemas/players.schema';
+import { Team } from 'src/teams/schemas/teams.schema';
+import { TeamsService } from 'src/teams/teams.service';
+import { ManagersService } from 'src/managers/managers.service';
 
 @Injectable()
 export class MatchesService {
+    constructor(
+        private readonly playersService : PlayersService,
+        private readonly teamsService : TeamsService,
+        private readonly managersService : ManagersService
+    ) {}
+    
+    findTeams() : Promise<Team[]> {
+        return this.teamsService.findAll();
+    }
 
-    private readonly matches = [
-        { id: 1, name: 'Match 1', date: new Date(), location: 'Location 1' },
-        { id: 2, name: 'Match 2', date: new Date(), location: 'Location 2' },
-        { id: 3, name: 'Match 3', date: new Date(), location: 'Location 3' },
-    ];
-    
-    findAll() {
-        return this.matches;
+    findPlayers() : Promise<Player[]> {
+        return this.playersService.findAll();
     }
-    
-    findOne(id: number) {
-        return this.matches.find(match => match.id === id);
+
+    findManagers() {
+        return this.managersService.findAll();
     }
+
 }

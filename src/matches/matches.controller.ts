@@ -7,8 +7,18 @@ export class MatchesController {
         private readonly matchesService: MatchesService, 
     ) {}
 
-    @Get()
+    @Get('teams')
     findAll() {
-        return this.matchesService.findAll();
+        return this.matchesService.findTeams();
+    }
+
+    @Get('players')
+    findPlayers() {
+        return this.matchesService.findPlayers();
+    }
+
+    @Get('managers')
+    findManagers() {
+        return this.matchesService.findManagers();
     }
 }
