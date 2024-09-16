@@ -22,15 +22,3 @@ export class Team {
 }
 
 export const TeamSchema = SchemaFactory.createForClass(Team);
-
-
-// {
-// 	“_id”: ObjectId,
-// 	“name”: string,
-// 	“image_link”: string,
-// 	“image_id”: string,
-// 	“stadium: {
-// 		“name”: string | null,
-// 		“capacity”: int | null
-// 	} | null
-// }

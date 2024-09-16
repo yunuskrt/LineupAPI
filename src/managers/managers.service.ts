@@ -6,8 +6,8 @@ import { Manager } from './schemas/managers.schema';
 @Injectable()
 export class ManagersService {
     constructor(@InjectModel('Manager') private readonly managerModel: Model<Manager>) {}
-
-    async findAll(): Promise<Manager[]> {
-        return await this.managerModel.find()
+    
+    async findManagersByIdList(managerIds: string[]): Promise<Manager[]> {
+        return await this.managerModel.find({ _id: { $in: managerIds } });
     }
 }

@@ -7,7 +7,8 @@ import { Team } from './schemas/teams.schema';
 export class TeamsService {
     constructor(@InjectModel('Team') private readonly teamModel: Model<Team>) {}
 
-    async findAll(): Promise<Team[]> {
-        return await this.teamModel.find()
+    async findTeamsByIdList(teamIds: string[]): Promise<Team[]> {
+        return await this.teamModel.find({ _id: { $in: teamIds } });
     }
+
 }

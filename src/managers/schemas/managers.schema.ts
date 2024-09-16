@@ -22,11 +22,3 @@ export class Manager {
 }
 
 export const ManagerSchema = SchemaFactory.createForClass(Manager);
-// {
-// 	“_id”: ObjectId,
-// 	“name”: string,
-// 	“image_link”: string,
-// 	“image_id”: string,
-// 	“date_of_birth”: string | null,
-// 	“citizenship”: string
-// }

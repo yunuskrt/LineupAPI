@@ -31,15 +31,3 @@ export class Player {
 }
 
 export const PlayerSchema = SchemaFactory.createForClass(Player);
-
-// {
-// 	“_id”: ObjectId,
-// 	“name”: string,
-// 	“image_link”: string,
-// 	“image_id”: string,
-// 	“date_of_birth”: string | null,
-// 	“citizenship”: string,
-// 	“height”: int | null,
-// 	“position”: string,
-// 	“foot”: string | null
-// }

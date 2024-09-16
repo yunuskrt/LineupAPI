@@ -7,7 +7,7 @@ import { Player } from './schemas/players.schema';
 export class PlayersService {
     constructor(@InjectModel('Player') private readonly playerModel: Model<Player>) {}
 
-    async findAll(): Promise<Player[]> {
-        return await this.playerModel.find()
+    async findPlayersByIdList(playerIds: string[]): Promise<Player[]> {
+        return await this.playerModel.find({ _id: { $in: playerIds } });
     }
 }
